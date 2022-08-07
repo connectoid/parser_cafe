@@ -145,3 +145,6 @@ dmypy.json
 
 .mypy_cache
 
+# Output files
+
+out.csv
