@@ -40,7 +40,7 @@ with open("out.csv", mode="w", encoding='utf-8') as w_file:
     file_writer = csv.writer(w_file, delimiter = ",", lineterminator="\r")
     file_writer.writerow(['Кафе', 'Категория', 'Блюдо', 'Описание', 'Цена'])
     for cafe_url in cafe_urls:
-        if tmp_count < 1:
+        # if tmp_count < 10:
 
             response_cafe_url = requests.get(cafe_url)
             cafe_response = BeautifulSoup(response_cafe_url.text, 'lxml')
@@ -62,7 +62,7 @@ with open("out.csv", mode="w", encoding='utf-8') as w_file:
                         cafe_item.append(prices[count])
                         file_writer.writerow(cafe_item)
 
-        tmp_count += 1
+        # tmp_count += 1
 
 toc = time.perf_counter()
 print(f"Парсинг занял {toc - tic:0.4f} секунд")
